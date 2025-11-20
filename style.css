@@ -1,0 +1,343 @@
+/* Custom CSS Variables for easy theme switching */
+:root {
+    --color-primary: #00ff99; /* Neon Green/Cyan for accents */
+    --color-secondary: #00b377; /* Darker green */
+    --color-background: #0d0d0d; /* Very Dark background */
+    --color-text: #f0f0f0; /* Light text */
+    --color-card-bg: #1e1e1e; /* Card background (Darker than before) */
+    --font-stack: 'Fira Code', 'Roboto Mono', monospace; /* Tech/Code font */
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+a:hover {
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+h1, h2, h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+}
+
+.content-section {
+    padding: 80px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header and Navigation --- */
+.header {
+    background-color: rgba(17, 17, 17, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 10%;
+    border-bottom: 2px solid var(--color-secondary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--color-text);
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, var(--color-background) 100%);
+}
+
+.hero-content h1 {
+    font-size: 4.5em; /* Slightly larger */
+    margin-bottom: 0.1em;
+    letter-spacing: 5px; /* More emphasis */
+    text-shadow: 0 0 8px var(--color-primary); /* Subtle neon glow */
+}
+
+.hero-content h2 {
+    font-size: 1.6em;
+    color: var(--color-text);
+    margin-bottom: 2em;
+    border-bottom: 3px solid var(--color-primary);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Profile Picture Styles */
+.profile-photo-container {
+    margin-bottom: 30px;
+}
+
+.profile-photo {
+    width: 180px; /* Size adjustment */
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-primary); /* Neon border */
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.6); /* Stronger glow */
+    transition: transform 0.4s;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+.contact-info a, .contact-info span {
+    margin: 0 20px;
+    font-size: 1.1em;
+    display: inline-block;
+}
+
+.contact-info i {
+    margin-right: 8px;
+    color: var(--color-secondary);
+}
+
+/* --- Skills Section --- */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.skill-category {
+    background: var(--color-card-bg);
+    padding: 25px;
+    border-left: 5px solid var(--color-primary);
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.skill-category:hover {
+    transform: translateY(-8px);
+    background-color: #252525;
+}
+
+/* --- Experience Timeline (Minor style updates for visual continuity) --- */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--color-secondary);
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-item {
+    position: relative;
+    background: var(--color-card-bg);
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.timeline-item:nth-child(even) {
+    left: 55%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--color-primary);
+    border: 4px solid var(--color-background);
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -27px;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -27px;
+}
+
+.timeline-item h3 {
+    color: var(--color-primary);
+}
+
+.timeline-item .date {
+    color: var(--color-secondary);
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.timeline-item ul {
+    list-style: square;
+    margin-left: 20px;
+}
+
+/* --- Projects Grid (Enhanced Hover Effect) --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Style the anchor tag to allow the project card to fill the grid space */
+.project-link {
+    display: block;
+    color: inherit; /* Maintain text color */
+}
+
+.project-card {
+    background: var(--color-card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 153, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+    height: 100%; /* Ensure card fills the link wrapper height */
+}
+
+/* Apply hover effect to the link wrapper */
+.project-link:hover .project-card {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary); /* Stronger glow on hover */
+    background-color: #252525;
+    transform: scale(1.02);
+}
+
+/* --- Education and Certs --- */
+.education-certs-section {
+    display: flex;
+    gap: 50px;
+    padding: 80px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.edu-cert-block {
+    flex: 1;
+    background: var(--color-card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 5px solid var(--color-secondary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.edu-cert-block ul {
+    list-style: none;
+}
+
+.edu-cert-block li {
+    padding: 5px 0;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--color-card-bg);
+    border-top: 1px solid var(--color-secondary);
+    font-size: 0.9em;
+    color: var(--color-secondary);
+}
+
+/* Animation Class for JavaScript */
+.animate-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 5%;
+    }
+    .navbar {
+        flex-wrap: wrap;
+    }
+    .nav-link {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    .hero-content h1 {
+        font-size: 3em;
+    }
+    .content-section {
+        padding: 40px 5%;
+    }
+    .profile-photo {
+        width: 150px; 
+        height: 150px;
+    }
+    /* Adjust timeline for single column on mobile */
+    .timeline::before {
+        left: 20px;
+    }
+    .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) {
+        width: 100%;
+        left: 0;
+        padding-left: 40px;
+        margin-bottom: 20px;
+    }
+    .timeline-item:nth-child(odd)::after, .timeline-item:nth-child(even)::after {
+        left: 14px;
+        right: auto;
+    }
+    .education-certs-section {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
